@@ -1,7 +1,5 @@
 const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const mongodb = require('./db/mongodb')
-const nameRoute = require('./routes/nameRoute')
+const mongodb = require('./db/mongodb');
 
 const port = process.env.Port || 8080;
 const app = express();
@@ -11,9 +9,10 @@ app
         res.setHeader("Access-Control-Allow-Origin", "*");
         next();
     })    
-    .use('/professional', nameRoute);
+    .use('/professional', require('./routes/nameRoute'))
+    .use('/contacts', require('./routes/contactsRoute'))
 
-mongodb.initDb((err, mongodb) => {
+mongodb.initDb((err) => {
     if (err) {
         console.log(err);
     } else {
