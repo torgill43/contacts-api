@@ -1,12 +1,23 @@
 const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const mongodb = require('./db/mongodb')
+const nameRoute = require('./routes/nameRoute')
+
+const port = process.env.Port || 8080;
 const app = express();
 
-const port = 8081;
+app
+    .use((req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        next();
+    })    
+    .use('/professional', nameRoute);
 
-app.get('/', function (req, res) {
-    res.send('Sydney Orgill. This is a test!');
+mongodb.initDb((err, mongodb) => {
+    if (err) {
+        console.log(err);
+    } else {
+        app.listen(port);
+        console.log(`Connected to DB and listening on port ${port}`);
+    }
 });
-
-var server = app.listen(port, function () {
-    console.log(`Listening on localhost:${port}`);
-})
