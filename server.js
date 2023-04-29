@@ -9,8 +9,8 @@ app
         res.setHeader("Access-Control-Allow-Origin", "*");
         next();
     })    
+    .use('/', require('./routes'))
     .use('/professional', require('./routes/nameRoute'))
-    .use('/contacts', require('./routes/contactsRoute'))
 
 mongodb.initDb((err) => {
     if (err) {
