@@ -4,11 +4,18 @@ GET http://localhost:8080
 ###
 GET http://localhost:8080/contacts
 ###
-GET http://localhost:8080/contacts/644a8900cc44d23f66fa8c51
+GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc3
 ###
-GET http://localhost:8080/contacts/644aef9e1a6a46749659addc
+GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc4
 ###
-GET http://localhost:8080/contacts/644aefcd1a6a46749659adde
+GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc5
+###
+POST http://localhost:8080/contacts/create
+###
+PUT http://localhost:8080/contacts/update/644aef9e1a6a46749659addc
+###
+DELETE http://localhost:8080/contacts/delete/6455a6b06d718c14d4d7746c
+
 
 // PRODUCTION DISPLAY 
 ###
@@ -16,9 +23,14 @@ GET https://contacts-fh43.onrender.com/
 ###
 GET https://contacts-fh43.onrender.com/contacts
 ###
-GET https://contacts-fh43.onrender.com/contacts/644a8900cc44d23f66fa8c51
+GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc3
 ###
-GET https://contacts-fh43.onrender.com/contacts/644aef9e1a6a46749659addc
+GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc4
 ###
-GET https://contacts-fh43.onrender.com/contacts/644aefcd1a6a46749659adde
-
+GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc5
+###
+POST https://contacts-fh43.onrender.com/contacts/create
+###
+PUT https://contacts-fh43.onrender.com/contacts/update/644aef9e1a6a46749659addc
+###
+DELETE https://contacts-fh43.onrender.com/contacts/delete/6455a6b06d718c14d4d7746c
