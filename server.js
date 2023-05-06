@@ -1,16 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongodb = require('./db/mongodb');
 
 const port = process.env.Port || 8080;
 const app = express();
 
 app
+    .use(bodyParser.json())
     .use((req, res, next) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
         next();
     })    
     .use('/', require('./routes'))
-    .use('/professional', require('./routes/nameRoute'))
+    // .use('/professional', require('./routes/nameRoute'))
 
 mongodb.initDb((err) => {
     if (err) {

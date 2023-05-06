@@ -25,41 +25,43 @@ const getOneContact = async (req, res, next) => {
 };
 
 const createContact = async (req, res, next) => {
+    console.log(req.body)
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+      };
     const result = await mongodb
         .getDb()
         .db('contacts')
         .collection('contacts')
-        .insertOne({
-            "firstName": "Cool",
-            "lastName": "Dude",
-            "email": "cooldude@email.com",
-            "favoriteColor": "chartreuse",
-            "birthday": "5/5/05"
-        })
+        .insertOne(contact)
         res.setHeader('Content-Type', 'application/json');
         res.status(201).send("_id: " + result.insertedId.toString())
-        // res.status(201).send({ "message": result._id });
-
 };
 
 const updateContact = async (req, res, next) => {
     const userId = new ObjectId(req.params.id);
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    };
     const result = await mongodb
         .getDb()
         .db('contacts')
         .collection('contacts')
-        .updateOne(
-            { _id: userId },
-            { $set:
-                {
-                    "fname": "Cool",
-                    "lname": "Dude",
-                    "email": "cooldude@email.com",
-                    "favColor": "green",
-                    "bday": "1/1/11"
-                }});
-    res.setHeader('Content-Type', 'application/json');
-    res.status(204);
+        .updateOne({ _id: userId }, {$set: contact});
+    console.log(result)
+    if (result.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(500).json(result.error || "Some error occurred while updating the contact.")
+    }
 };
 
 const deleteContact = async (req, res, next) => {

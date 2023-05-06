@@ -1,36 +1,75 @@
 //LOCALHOST
-###
+### Base Route
 GET http://localhost:8080
-###
+
+### Get all contacts
 GET http://localhost:8080/contacts
-###
-GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc3
-###
-GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc4
-###
-GET http://localhost:8080/contacts/6455a3b2d82e3f21e5b2bfc5
-###
-POST http://localhost:8080/contacts/create
-###
-PUT http://localhost:8080/contacts/update/644aef9e1a6a46749659addc
-###
-DELETE http://localhost:8080/contacts/delete/6455a6b06d718c14d4d7746c
 
+### Get contact by ID
+GET http://localhost:8080/contacts/<id>
 
-// PRODUCTION DISPLAY 
-###
+### Create new contact
+POST http://localhost:8080/contacts/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Random",
+    "lastName":"Joe",
+    "email":"rando@email.com",
+    "favoriteColor":"green",
+    "birthday":"5/5/05"
+}
+
+### Update contact by ID
+PUT http://localhost:8080/contacts/update/<id> HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Cool",
+    "lastName": "Dude",
+    "email": "cooldude@email.com",
+    "favoriteColor": "chartreuse",
+    "birthday": "5/5/05"
+}
+
+### Delete contact by ID
+DELETE http://localhost:8080/contacts/delete/<id>
+
+--------------------------------------------------------------------------------
+
+// PRODUCTION DISPLAY (render.com)
+### Base Route
 GET https://contacts-fh43.onrender.com/
-###
+
+### Get all contacts
 GET https://contacts-fh43.onrender.com/contacts
-###
-GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc3
-###
-GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc4
-###
-GET https://contacts-fh43.onrender.com/contacts/6455a3b2d82e3f21e5b2bfc5
-###
-POST https://contacts-fh43.onrender.com/contacts/create
-###
-PUT https://contacts-fh43.onrender.com/contacts/update/644aef9e1a6a46749659addc
-###
-DELETE https://contacts-fh43.onrender.com/contacts/delete/6455a6b06d718c14d4d7746c
+
+### Get single contact by ID
+GET https://contacts-fh43.onrender.com/contacts/<id>
+
+### Create new contact
+POST https://contacts-fh43.onrender.com/contacts/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName":"Random",
+    "lastName":"Joe",
+    "email":"rando@email.com",
+    "favoriteColor":"green",
+    "birthday":"5/5/05"
+}
+
+### Update contact by ID
+PUT https://contacts-fh43.onrender.com/contacts/update/<id> HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Cool",
+    "lastName": "Dude",
+    "email": "cooldude@email.com",
+    "favoriteColor": "chartreuse",
+    "birthday": "5/5/05"
+}
+
+### Delete contact by ID
+DELETE https://contacts-fh43.onrender.com/contacts/delete/<id>
