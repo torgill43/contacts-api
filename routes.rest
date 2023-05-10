@@ -45,22 +45,22 @@ GET https://contacts-fh43.onrender.com/
 GET https://contacts-fh43.onrender.com/contacts
 
 ### Get single contact by ID
-GET https://contacts-fh43.onrender.com/contacts/<id>
+GET https://contacts-fh43.onrender.com/contacts/6457158e0a338e56a0403db7
 
 ### Create new contact
 POST https://contacts-fh43.onrender.com/contacts/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Random",
-    "lastName":"Joe",
-    "email":"rando@email.com",
-    "favoriteColor":"green",
+    "firstName":"New",
+    "lastName":"Guy",
+    "email":"newbie@email.com",
+    "favoriteColor":"gray",
     "birthday":"5/5/05"
 }
 
 ### Update contact by ID
-PUT https://contacts-fh43.onrender.com/contacts/update/<id> HTTP/1.1
+PUT https://contacts-fh43.onrender.com/contacts/update/6457158e0a338e56a0403db7 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -72,4 +72,4 @@ Content-Type: application/json
 }
 
 ### Delete contact by ID
-DELETE https://contacts-fh43.onrender.com/contacts/delete/<id>
+DELETE https://contacts-fh43.onrender.com/contacts/delete/6457158e0a338e56a0403db7
