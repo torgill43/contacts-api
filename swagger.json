@@ -14,6 +14,9 @@
   "paths": {
     "/contacts/": {
       "get": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -24,31 +27,11 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/contacts/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/contacts/create": {
+      },
       "post": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -86,8 +69,33 @@
         }
       }
     },
-    "/contacts/update/{id}": {
+    "/contacts/{id}": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "put": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "parameters": [
           {
@@ -129,10 +137,11 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/contacts/delete/{id}": {
+      },
       "delete": {
+        "tags": [
+          "Contacts"
+        ],
         "description": "",
         "produces": [
           "application/json"
