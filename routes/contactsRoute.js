@@ -8,12 +8,12 @@ router.get('/', contactController.getAllContacts);
 router.get('/:id', contactController.getOneContact);
 
 // Route to create a contact
-router.post('/create', contactController.createContact);
+router.post('/', contactController.createContact);
 
 // Route to update a contact based on ID
-router.put('/update/:id', contactController.updateContact);
+router.put('/:id', contactController.updateContact);
 
 // Route to delete a contact based on ID
-router.delete('/delete/:id', contactController.deleteContact);
+router.delete('/:id', contactController.deleteContact);
 
 module.exports = router;
