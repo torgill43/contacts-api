@@ -39,7 +39,7 @@ const createContact = async (req, res, next) => {
         .collection('contacts')
         .insertOne(contact)
         res.setHeader('Content-Type', 'application/json');
-        res.status(201).send("_id: " + result.insertedId.toString())
+        res.status(201).json({"id": result.insertedId.toString()})
 };
 
 const updateContact = async (req, res, next) => {
