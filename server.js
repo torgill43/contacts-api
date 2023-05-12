@@ -11,8 +11,12 @@ app
     .use(bodyParser.json())
     .use((req, res, next) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-        res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+        res.setHeader(
+            "Access-Control-Allow-Headers", 
+            "Origin, X-Requested-With, Content-Type, Accept, Z-Key, Authorization"
+            );
+        res.setHeader('Content-Type', 'application/json')
+        res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         next();
     })
     .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
