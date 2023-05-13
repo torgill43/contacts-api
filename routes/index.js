@@ -1,5 +1,8 @@
 const router = require('express').Router();
 
+// Route for Swagger UI
+router.use('/', require('./swagger'))
+
 // Contacts Route
 router.use('/contacts', require('./contactsRoute'));
 

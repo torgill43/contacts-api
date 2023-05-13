@@ -19,7 +19,6 @@ app
         res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         next();
     })
-    .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
     .use('/', require('./routes'))
     // .use('/professional', require('./routes/nameRoute'))
 
